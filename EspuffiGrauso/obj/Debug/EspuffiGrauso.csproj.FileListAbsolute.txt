@@ -1,0 +1,10 @@
+C:\Users\graus\Desktop\Scuola\Informatica\Teoria\C#\EspuffiGrauso\EspuffiGrauso\bin\Debug\EspuffiGrauso.exe.config
+C:\Users\graus\Desktop\Scuola\Informatica\Teoria\C#\EspuffiGrauso\EspuffiGrauso\bin\Debug\EspuffiGrauso.exe
+C:\Users\graus\Desktop\Scuola\Informatica\Teoria\C#\EspuffiGrauso\EspuffiGrauso\bin\Debug\EspuffiGrauso.pdb
+C:\Users\graus\Desktop\Scuola\Informatica\Teoria\C#\EspuffiGrauso\EspuffiGrauso\obj\Debug\EspuffiGrauso.csproj.AssemblyReference.cache
+C:\Users\graus\Desktop\Scuola\Informatica\Teoria\C#\EspuffiGrauso\EspuffiGrauso\obj\Debug\EspuffiGrauso.Form1.resources
+C:\Users\graus\Desktop\Scuola\Informatica\Teoria\C#\EspuffiGrauso\EspuffiGrauso\obj\Debug\EspuffiGrauso.Properties.Resources.resources
+C:\Users\graus\Desktop\Scuola\Informatica\Teoria\C#\EspuffiGrauso\EspuffiGrauso\obj\Debug\EspuffiGrauso.csproj.GenerateResource.cache
+C:\Users\graus\Desktop\Scuola\Informatica\Teoria\C#\EspuffiGrauso\EspuffiGrauso\obj\Debug\EspuffiGrauso.csproj.CoreCompileInputs.cache
+C:\Users\graus\Desktop\Scuola\Informatica\Teoria\C#\EspuffiGrauso\EspuffiGrauso\obj\Debug\EspuffiGrauso.exe
+C:\Users\graus\Desktop\Scuola\Informatica\Teoria\C#\EspuffiGrauso\EspuffiGrauso\obj\Debug\EspuffiGrauso.pdb
