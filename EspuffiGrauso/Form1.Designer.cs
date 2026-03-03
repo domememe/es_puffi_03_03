@@ -28,86 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbl_puffo = new System.Windows.Forms.Label();
-            this.txt_X = new System.Windows.Forms.TextBox();
-            this.pnl_nascosto = new System.Windows.Forms.Panel();
-            this.btn_avvia = new System.Windows.Forms.Button();
-            this.lbl_Y = new System.Windows.Forms.Label();
-            this.txt_Y = new System.Windows.Forms.TextBox();
-            this.lbl_X = new System.Windows.Forms.Label();
             this.btn_mostra = new System.Windows.Forms.Button();
             this.pnl_area = new System.Windows.Forms.Panel();
+            this.pnl_gargamella = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pnl_casetta = new System.Windows.Forms.Panel();
-            this.lbl_punteggio = new System.Windows.Forms.Label();
             this.pnl_puffo = new System.Windows.Forms.Panel();
-            this.pnl_nascosto.SuspendLayout();
+            this.lbl_punteggio = new System.Windows.Forms.Label();
+            this.lbl_puntogarg = new System.Windows.Forms.Label();
+            this.lbl_turno = new System.Windows.Forms.Label();
+            this.pnl_albero = new System.Windows.Forms.Panel();
+            this.pnl_albero2 = new System.Windows.Forms.Panel();
+            this.pnl_albero3 = new System.Windows.Forms.Panel();
+            this.pnl_albero4 = new System.Windows.Forms.Panel();
+            this.pnl_albero6 = new System.Windows.Forms.Panel();
+            this.pnl_albero5 = new System.Windows.Forms.Panel();
             this.pnl_area.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lbl_puffo
-            // 
-            this.lbl_puffo.AutoSize = true;
-            this.lbl_puffo.Location = new System.Drawing.Point(27, 39);
-            this.lbl_puffo.Name = "lbl_puffo";
-            this.lbl_puffo.Size = new System.Drawing.Size(185, 16);
-            this.lbl_puffo.TabIndex = 0;
-            this.lbl_puffo.Text = "Inserisci la posizione del puffo";
-            // 
-            // txt_X
-            // 
-            this.txt_X.Location = new System.Drawing.Point(257, 36);
-            this.txt_X.Name = "txt_X";
-            this.txt_X.Size = new System.Drawing.Size(100, 22);
-            this.txt_X.TabIndex = 1;
-            this.txt_X.TextChanged += new System.EventHandler(this.txt_X_TextChanged);
-            // 
-            // pnl_nascosto
-            // 
-            this.pnl_nascosto.Controls.Add(this.btn_avvia);
-            this.pnl_nascosto.Controls.Add(this.lbl_Y);
-            this.pnl_nascosto.Controls.Add(this.txt_Y);
-            this.pnl_nascosto.Controls.Add(this.lbl_X);
-            this.pnl_nascosto.Controls.Add(this.txt_X);
-            this.pnl_nascosto.Controls.Add(this.lbl_puffo);
-            this.pnl_nascosto.Location = new System.Drawing.Point(187, 120);
-            this.pnl_nascosto.Name = "pnl_nascosto";
-            this.pnl_nascosto.Size = new System.Drawing.Size(403, 193);
-            this.pnl_nascosto.TabIndex = 2;
-            // 
-            // btn_avvia
-            // 
-            this.btn_avvia.Location = new System.Drawing.Point(166, 121);
-            this.btn_avvia.Name = "btn_avvia";
-            this.btn_avvia.Size = new System.Drawing.Size(75, 48);
-            this.btn_avvia.TabIndex = 5;
-            this.btn_avvia.Text = "Avvia il gioco";
-            this.btn_avvia.UseVisualStyleBackColor = true;
-            this.btn_avvia.Click += new System.EventHandler(this.btn_avvia_Click);
-            // 
-            // lbl_Y
-            // 
-            this.lbl_Y.AutoSize = true;
-            this.lbl_Y.Location = new System.Drawing.Point(233, 67);
-            this.lbl_Y.Name = "lbl_Y";
-            this.lbl_Y.Size = new System.Drawing.Size(19, 16);
-            this.lbl_Y.TabIndex = 4;
-            this.lbl_Y.Text = "Y:";
-            // 
-            // txt_Y
-            // 
-            this.txt_Y.Location = new System.Drawing.Point(257, 64);
-            this.txt_Y.Name = "txt_Y";
-            this.txt_Y.Size = new System.Drawing.Size(100, 22);
-            this.txt_Y.TabIndex = 3;
-            // 
-            // lbl_X
-            // 
-            this.lbl_X.AutoSize = true;
-            this.lbl_X.Location = new System.Drawing.Point(233, 39);
-            this.lbl_X.Name = "lbl_X";
-            this.lbl_X.Size = new System.Drawing.Size(18, 16);
-            this.lbl_X.TabIndex = 2;
-            this.lbl_X.Text = "X:";
             // 
             // btn_mostra
             // 
@@ -121,6 +58,15 @@
             // 
             // pnl_area
             // 
+            this.pnl_area.BackColor = System.Drawing.Color.Lime;
+            this.pnl_area.Controls.Add(this.pnl_albero5);
+            this.pnl_area.Controls.Add(this.pnl_albero6);
+            this.pnl_area.Controls.Add(this.pnl_albero4);
+            this.pnl_area.Controls.Add(this.pnl_albero3);
+            this.pnl_area.Controls.Add(this.pnl_albero2);
+            this.pnl_area.Controls.Add(this.pnl_albero);
+            this.pnl_area.Controls.Add(this.pnl_gargamella);
+            this.pnl_area.Controls.Add(this.panel1);
             this.pnl_area.Controls.Add(this.pnl_casetta);
             this.pnl_area.Controls.Add(this.pnl_puffo);
             this.pnl_area.Location = new System.Drawing.Point(146, 38);
@@ -128,22 +74,28 @@
             this.pnl_area.Size = new System.Drawing.Size(500, 400);
             this.pnl_area.TabIndex = 4;
             // 
+            // pnl_gargamella
+            // 
+            this.pnl_gargamella.BackColor = System.Drawing.Color.Black;
+            this.pnl_gargamella.Location = new System.Drawing.Point(223, 56);
+            this.pnl_gargamella.Name = "pnl_gargamella";
+            this.pnl_gargamella.Size = new System.Drawing.Size(30, 30);
+            this.pnl_gargamella.TabIndex = 4;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(207, 69);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(0, 0);
+            this.panel1.TabIndex = 3;
+            // 
             // pnl_casetta
             // 
             this.pnl_casetta.BackColor = System.Drawing.Color.Red;
             this.pnl_casetta.Location = new System.Drawing.Point(235, 185);
             this.pnl_casetta.Name = "pnl_casetta";
-            this.pnl_casetta.Size = new System.Drawing.Size(30, 30);
+            this.pnl_casetta.Size = new System.Drawing.Size(50, 50);
             this.pnl_casetta.TabIndex = 2;
-            // 
-            // lbl_punteggio
-            // 
-            this.lbl_punteggio.AutoSize = true;
-            this.lbl_punteggio.Location = new System.Drawing.Point(143, 9);
-            this.lbl_punteggio.Name = "lbl_punteggio";
-            this.lbl_punteggio.Size = new System.Drawing.Size(81, 16);
-            this.lbl_punteggio.TabIndex = 1;
-            this.lbl_punteggio.Text = "Punteggio: 0";
             // 
             // pnl_puffo
             // 
@@ -153,20 +105,93 @@
             this.pnl_puffo.Size = new System.Drawing.Size(30, 30);
             this.pnl_puffo.TabIndex = 0;
             // 
+            // lbl_punteggio
+            // 
+            this.lbl_punteggio.AutoSize = true;
+            this.lbl_punteggio.Location = new System.Drawing.Point(143, 9);
+            this.lbl_punteggio.Name = "lbl_punteggio";
+            this.lbl_punteggio.Size = new System.Drawing.Size(135, 16);
+            this.lbl_punteggio.TabIndex = 1;
+            this.lbl_punteggio.Text = "Punteggio del puffo: 0";
+            // 
+            // lbl_puntogarg
+            // 
+            this.lbl_puntogarg.AutoSize = true;
+            this.lbl_puntogarg.Location = new System.Drawing.Point(453, 9);
+            this.lbl_puntogarg.Name = "lbl_puntogarg";
+            this.lbl_puntogarg.Size = new System.Drawing.Size(177, 16);
+            this.lbl_puntogarg.TabIndex = 5;
+            this.lbl_puntogarg.Text = "Punteggio di Garagamella: 0";
+            // 
+            // lbl_turno
+            // 
+            this.lbl_turno.AutoSize = true;
+            this.lbl_turno.Location = new System.Drawing.Point(42, 107);
+            this.lbl_turno.Name = "lbl_turno";
+            this.lbl_turno.Size = new System.Drawing.Size(0, 16);
+            this.lbl_turno.TabIndex = 6;
+            // 
+            // pnl_albero
+            // 
+            this.pnl_albero.BackColor = System.Drawing.Color.DarkGreen;
+            this.pnl_albero.Location = new System.Drawing.Point(259, 79);
+            this.pnl_albero.Name = "pnl_albero";
+            this.pnl_albero.Size = new System.Drawing.Size(40, 40);
+            this.pnl_albero.TabIndex = 5;
+            // 
+            // pnl_albero2
+            // 
+            this.pnl_albero2.BackColor = System.Drawing.Color.DarkGreen;
+            this.pnl_albero2.Location = new System.Drawing.Point(112, 213);
+            this.pnl_albero2.Name = "pnl_albero2";
+            this.pnl_albero2.Size = new System.Drawing.Size(40, 40);
+            this.pnl_albero2.TabIndex = 6;
+            // 
+            // pnl_albero3
+            // 
+            this.pnl_albero3.BackColor = System.Drawing.Color.DarkGreen;
+            this.pnl_albero3.Location = new System.Drawing.Point(337, 226);
+            this.pnl_albero3.Name = "pnl_albero3";
+            this.pnl_albero3.Size = new System.Drawing.Size(40, 40);
+            this.pnl_albero3.TabIndex = 7;
+            // 
+            // pnl_albero4
+            // 
+            this.pnl_albero4.BackColor = System.Drawing.Color.DarkGreen;
+            this.pnl_albero4.Location = new System.Drawing.Point(352, 134);
+            this.pnl_albero4.Name = "pnl_albero4";
+            this.pnl_albero4.Size = new System.Drawing.Size(40, 40);
+            this.pnl_albero4.TabIndex = 8;
+            // 
+            // pnl_albero6
+            // 
+            this.pnl_albero6.BackColor = System.Drawing.Color.DarkGreen;
+            this.pnl_albero6.Location = new System.Drawing.Point(223, 260);
+            this.pnl_albero6.Name = "pnl_albero6";
+            this.pnl_albero6.Size = new System.Drawing.Size(40, 40);
+            this.pnl_albero6.TabIndex = 9;
+            // 
+            // pnl_albero5
+            // 
+            this.pnl_albero5.BackColor = System.Drawing.Color.DarkGreen;
+            this.pnl_albero5.Location = new System.Drawing.Point(230, 180);
+            this.pnl_albero5.Name = "pnl_albero5";
+            this.pnl_albero5.Size = new System.Drawing.Size(40, 40);
+            this.pnl_albero5.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lbl_turno);
+            this.Controls.Add(this.lbl_puntogarg);
             this.Controls.Add(this.pnl_area);
             this.Controls.Add(this.lbl_punteggio);
             this.Controls.Add(this.btn_mostra);
-            this.Controls.Add(this.pnl_nascosto);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.pnl_nascosto.ResumeLayout(false);
-            this.pnl_nascosto.PerformLayout();
             this.pnl_area.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -174,19 +199,21 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lbl_puffo;
-        private System.Windows.Forms.TextBox txt_X;
-        private System.Windows.Forms.Panel pnl_nascosto;
-        private System.Windows.Forms.Label lbl_X;
-        private System.Windows.Forms.Label lbl_Y;
-        private System.Windows.Forms.TextBox txt_Y;
-        private System.Windows.Forms.Button btn_avvia;
         private System.Windows.Forms.Button btn_mostra;
         private System.Windows.Forms.Panel pnl_area;
         private System.Windows.Forms.Panel pnl_puffo;
         private System.Windows.Forms.Label lbl_punteggio;
         private System.Windows.Forms.Panel pnl_casetta;
+        private System.Windows.Forms.Panel pnl_gargamella;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lbl_puntogarg;
+        private System.Windows.Forms.Label lbl_turno;
+        private System.Windows.Forms.Panel pnl_albero;
+        private System.Windows.Forms.Panel pnl_albero5;
+        private System.Windows.Forms.Panel pnl_albero6;
+        private System.Windows.Forms.Panel pnl_albero4;
+        private System.Windows.Forms.Panel pnl_albero3;
+        private System.Windows.Forms.Panel pnl_albero2;
     }
 }
 

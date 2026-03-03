@@ -12,96 +12,166 @@ namespace EspuffiGrauso
 {
     struct Punto
     {
-        public int X, Y;
-        public Punto (int x, int y)
+        public int X, Y, XGargamella, YGargamella;
+        public Punto(int x, int y, int xgargamella, int ygargamella)
         {
-            X = x;
-            Y = y;
+            this.XGargamella = xgargamella;
+            this.YGargamella = ygargamella;
+            this.X = x;
+            this.Y = y;
         }
     };
+
     public partial class Form1 : Form
     {
-        int x, y;
+        Panel[] alberi;
+        PictureBox pictureBox1 = new PictureBox();
+        
+        int contamosse;
         Random rnd = new Random();
-        int punteggio = 0;
+        int punteggiop = 0;
+        int punteggiog = 0;
         int velocita = 10;
+        bool b;
         public Form1()
         {
             InitializeComponent();
             this.KeyPreview = true;
             this.KeyDown += Form1_KeyDown; // per far funzionare i tasti wasd
+            contamosse = 0;
+            b = true;
+            alberi = new Panel[6] { pnl_albero, pnl_albero2, pnl_albero3, pnl_albero4, pnl_albero5, pnl_albero6 };
+            pictureBox1.Image = System.Drawing.Bitmap.FromFile("C:\\Users\\graus\\Desktop||puffo.jpg");
+            pictureBox1.Dock = DockStyle.Fill; //Riempe il pannello
+            pnl_puffo.Controls.Add(pictureBox1);
         }
         private void txt_X_TextChanged(object sender, EventArgs e)
         {
         }
-        private void Form1_Load (object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
             lbl_punteggio.Visible = false;
+            lbl_puntogarg.Visible = false;
             btn_mostra.Visible = true;
-            pnl_nascosto.Visible = false;
             pnl_area.Visible = false;
         }
         private void btn_mostra_Click(object sender, EventArgs e)
         {
-            btn_mostra.Visible = false;
-            pnl_nascosto.Visible = true;
+            lbl_punteggio.Visible = true;
+            lbl_puntogarg.Visible = true;
+            pnl_area.Visible = true;
+
+
+            Punto posizione = new Punto(5, 5, 300, 300);
+            pnl_gargamella.Left = posizione.XGargamella;
+            pnl_gargamella.Top = posizione.YGargamella;
+            pnl_puffo.Left = posizione.X;
+            pnl_puffo.Top = posizione.Y;
+
+            SpostaCasetta();
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            int nuovaX = pnl_puffo.Left; //distanza del puffo da sinistra
-            int nuovaY = pnl_puffo.Top;  //distanza del puffo dall'alto
-            if (e.KeyCode == Keys.A) 
+            int nuovaX, nuovaY;
+            if (b)
+            {
+                nuovaX = pnl_puffo.Left;
+                nuovaY = pnl_puffo.Top;
+            }
+            else
+            {
+                nuovaX = pnl_gargamella.Left;
+                nuovaY = pnl_gargamella.Top;
+            }
+            if (e.KeyCode == Keys.A)
                 nuovaX -= velocita;
-
             if (e.KeyCode == Keys.D)
                 nuovaX += velocita;
-
             if (e.KeyCode == Keys.W)
                 nuovaY -= velocita;
-
-            if (e.KeyCode == Keys.S) 
+            if (e.KeyCode == Keys.S)
                 nuovaY += velocita;
+            if (b)
+            {
+                if (nuovaX >= 0 && nuovaX + pnl_puffo.Width <= pnl_area.Width)
+                    pnl_puffo.Left = nuovaX;
 
-                if (nuovaX >= 0 && nuovaX + pnl_puffo.Width <= pnl_area.Width) //controlla se il puffo va oltre i bordi laterali
-                pnl_puffo.Left = nuovaX;
+                if (nuovaY >= 0 && nuovaY + pnl_puffo.Height <= pnl_area.Height)
+                    pnl_puffo.Top = nuovaY;
+            }
+            else
+            {
+                if (nuovaX >= 0 && nuovaX + pnl_gargamella.Width <= pnl_area.Width)
+                    pnl_gargamella.Left = nuovaX;
 
-            if (nuovaY >= 0 && nuovaY + pnl_puffo.Height <= pnl_area.Height)
-                pnl_puffo.Top = nuovaY;
-
+                if (nuovaY >= 0 && nuovaY + pnl_gargamella.Height <= pnl_area.Height)
+                    pnl_gargamella.Top = nuovaY;
+            }
+            ControllaToccoPGarg();
             ControllaCollisione();
+            contamosse++;
+            ControllaToccoAlbero();
+
+            if (contamosse >= 10)
+            {
+                contamosse = 0;
+                b = !b;
+            }
         }
         private void ControllaCollisione()
         {
-            if (pnl_puffo.Bounds.IntersectsWith(pnl_casetta.Bounds))
+            if (b)
             {
-                punteggio++;
-                lbl_punteggio.Text = "Punteggio: " + punteggio;
-                SpostaCasetta();
+                if (pnl_puffo.Bounds.IntersectsWith(pnl_casetta.Bounds))
+                {
+                    punteggiop++;
+                    lbl_punteggio.Text = "Punteggio del puffo: " + punteggiop;
+                    SpostaCasetta();
+
+                }
+            }
+            else
+            {
+                if (pnl_gargamella.Bounds.IntersectsWith(pnl_casetta.Bounds))
+                {
+                    punteggiog++;
+                    lbl_puntogarg.Text = "Punteggio di Garagamella: " + punteggiog;
+                    SpostaCasetta();
+                }
             }
         }
+        private void ControllaToccoPGarg()
+        {
+            if (pnl_gargamella.Bounds.IntersectsWith(pnl_puffo.Bounds))
+            {
+                punteggiog++;
+                if (punteggiop > 0)
+                    punteggiop--;
+                int maxX1 = pnl_area.Width - pnl_puffo.Width;
+                int maxY1 = pnl_area.Height - pnl_puffo.Height;
+                pnl_puffo.Left = rnd.Next(0, maxX1);
+                pnl_puffo.Top = rnd.Next(0, maxY1);
+                lbl_puntogarg.Text = "Punteggio di Garagamella: " + punteggiog;
+                lbl_punteggio.Text = "Punteggio del puffo: " + punteggiop;
+            }
+        }
+        private void ControllaToccoAlbero()
+        {
+            for (int i = 0; i < alberi.Length; i++)
+            {
+                if (b)
+                {
+                    if (alberi[i].Bounds.IntersectsWith(pnl_puffo.Bounds))
+                        contamosse = 10;
+                }
+
+                else if (alberi[i].Bounds.IntersectsWith(pnl_gargamella.Bounds))
+                    contamosse = 10;
+            }
+        }
+        
         private void btn_avvia_Click(object sender, EventArgs e)
         {
-            if (!int.TryParse(txt_X.Text, out x) || !int.TryParse(txt_Y.Text, out y))
-            {
-                MessageBox.Show("Inserisci solo numeri!");
-                return;
-            }
-            if (x < 0 || x > 500 || y < 0 || y > 400) {
-                MessageBox.Show("Inserisci numeri validi (x [0, 500] e y[0,400] ");
-                return;
-            }
-            pnl_area.Visible = true;
-            lbl_punteggio.Visible=true;
-            if (x < 0 || x + pnl_puffo.Width > pnl_area.Width ||
-                y < 0 || y + pnl_puffo.Height > pnl_area.Height)
-            {
-                MessageBox.Show("Inserisci valori validi!");
-                return;
-            }
-            Punto posizione = new Punto(x, y);
-            pnl_puffo.Left = posizione.X;
-            pnl_puffo.Top = posizione.Y;
-            SpostaCasetta();
         }
         private void SpostaCasetta()
         {
@@ -109,6 +179,13 @@ namespace EspuffiGrauso
             int maxY = pnl_area.Height - pnl_casetta.Height;
             pnl_casetta.Left = rnd.Next(0, maxX);
             pnl_casetta.Top = rnd.Next(0, maxY);
+            for (int i = 0; i < alberi.Length; i++)
+            {
+                int max2x = pnl_area.Width - pnl_albero.Width;
+                int max2y = pnl_area.Height - pnl_albero.Height;
+                alberi[i].Left = rnd.Next(0, max2x);
+                alberi[i].Top = rnd.Next(0, max2y);
+            }
         }
     }
 }
